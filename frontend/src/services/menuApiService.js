@@ -4,7 +4,7 @@
  * Permite alternar facilmente a BASE_URL entre desenvolvimento local e produção.
  */
 
-const DEFAULT_API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000/api";
+const DEFAULT_API_URL = import.meta.env.VITE_API_URL || "https://sabor-e-bistro.onrender.com/api";
 
 // Permite obter ou sobrescrever em tempo de execução (útil para testes ou no GitHub Pages)
 export function getApiBaseUrl() {
