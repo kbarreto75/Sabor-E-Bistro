@@ -8,10 +8,20 @@
 
 ---
 
-## 🌐 Links do Projeto no Ar
+## ☁️ Hospedagem em Nuvem e Funcionamento da API no Render
 
-- 🚀 **Aplicação Front-end (GitHub Pages):** [https://kbarreto75.github.io/Sabor-E-Bistro/](https://kbarreto75.github.io/Sabor-E-Bistro/)
-- ⚙️ **API REST Back-end (Render):** [https://sabor-e-bistro.onrender.com/api/menu](https://sabor-e-bistro.onrender.com/api/menu)
+Para além da execução em ambiente local, a solução foi configurada e publicada em nuvem para demonstrar a viabilidade completa do CRUD em produção:
+
+1. **Deploy do Back-end no Render**:
+   - O servidor Node.js/Express (`/backend`) está publicado como um *Web Service* no **Render**.
+   - **Cumprimento do Requisito de Array em Memória**: A API mantém integralmente o requisito acadêmico de armazenar os dados no Array `menuItems` em memória RAM, sem uso de bancos de dados persistentes.
+   - **Ciclo de Vida e Re-hidratação**: Enquanto o servidor está ativo, as alterações de Create, Update e Delete persistem em tempo real entre as requisições. Quando o container é reiniciado ou sai da hibernação do plano gratuito, ele restaura automaticamente o estado inicial (*Seed Data*) com 4 pratos padrão, garantindo que o avaliador sempre encontre um cardápio funcional e limpo para testes.
+
+2. **Integração com o Front-end (GitHub Pages)**:
+   - O front-end React/Vite (`/frontend`) está compilado e publicado via **GitHub Pages**.
+   - A camada de dados isolada (`menuApiService.js`) consome a API remota via HTTPS através de `fetch`, operando de forma totalmente desacoplada e com **CORS** ativado no servidor Express.
+   
+> **Nota para Avaliação:** Por motivos de segurança e prevenção contra inserções indevidas na web pública, os links diretos de acesso foram disponibilizados privadamente no formulário de entrega da disciplina.
 
 ---
 ## 📋 Sumário Executivo e Rubrica de Avaliação
