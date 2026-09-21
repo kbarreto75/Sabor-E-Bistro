@@ -1,0 +1,18 @@
+{
+  "name": "oat-menu-backend",
+  "version": "1.0.0",
+  "description": "API REST em Node.js e Express para Gerenciamento de Itens de Cardápio com armazenamento em memória",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": ["node", "express", "crud", "clean-code", "dry"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}
