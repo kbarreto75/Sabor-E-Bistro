@@ -8,6 +8,12 @@
 
 ---
 
+## 🌐 Links do Projeto no Ar
+
+- 🚀 **Aplicação Front-end (GitHub Pages):** [https://kbarreto75.github.io/Sabor-E-Bistro/](https://kbarreto75.github.io/Sabor-E-Bistro/)
+- ⚙️ **API REST Back-end (Render):** [https://sabor-e-bistro.onrender.com/api/menu](https://sabor-e-bistro.onrender.com/api/menu)
+
+---
 ## 📋 Sumário Executivo e Rubrica de Avaliação
 
 Esta aplicação full-stack foi projetada e implementada para atender integralmente a todos os critérios da **OAT 1**, demonstrando as quatro operações fundamentais de um CRUD (Create, Read, Update, Delete) em um domínio de **Gerenciamento de Itens de Cardápio**.
