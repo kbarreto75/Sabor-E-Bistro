@@ -10,6 +10,8 @@ export function App() {
   const {
     items,
     loading,
+    error,
+    loadItems,
     itemToEdit,
     notification,
     selectedCategory,
@@ -48,6 +50,8 @@ export function App() {
           <MenuItemList
             items={items}
             loading={loading}
+            error={error}
+            onRetry={loadItems}
             selectedCategory={selectedCategory}
             onSelectCategory={setSelectedCategory}
             searchQuery={searchQuery}
