@@ -1,14 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { Header } from "./components/Header";
 import { MenuItemForm } from "./components/MenuItemForm";
 import { MenuItemList } from "./components/MenuItemList";
 import { Notification } from "./components/Notification";
-import { ApiConfigModal } from "./components/ApiConfigModal";
 import { useMenuItems } from "./hooks/useMenuItems";
 
 export function App() {
-  const [isConfigOpen, setIsConfigOpen] = useState(false);
-
   // Todo o estado e lógica de integração vêm isolados do Custom Hook
   const {
     items,
@@ -19,7 +16,6 @@ export function App() {
     searchQuery,
     setSelectedCategory,
     setSearchQuery,
-    loadItems,
     handleSaveItem,
     handleStartEdit,
     handleCancelEdit,
@@ -35,15 +31,8 @@ export function App() {
         onDismiss={dismissNotification}
       />
 
-      {/* Modal de Configuração de API */}
-      <ApiConfigModal
-        isOpen={isConfigOpen}
-        onClose={() => setIsConfigOpen(false)}
-        onUrlUpdated={loadItems}
-      />
-
       {/* Barra de Navegação Superior */}
-      <Header onOpenSettings={() => setIsConfigOpen(true)} />
+      <Header />
 
       {/* Conteúdo Principal */}
       <main className="main-content">

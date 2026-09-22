@@ -1,30 +1,20 @@
 /**
  * Camada de Serviço de API (Data Layer - Frontend)
  * Responsabilidade: Isolar completamente as requisições HTTP (fetch) da camada de renderização.
- * Permite alternar facilmente a BASE_URL entre desenvolvimento local e produção.
+ * Conectado de forma segura e direta à API oficial no Render.
  */
 
-const DEFAULT_API_URL = import.meta.env.VITE_API_URL || "https://sabor-e-bistro.onrender.com/api";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://sabor-e-bistro.onrender.com/api";
 
-// Permite obter ou sobrescrever em tempo de execução (útil para testes ou no GitHub Pages)
 export function getApiBaseUrl() {
-  return localStorage.getItem("MENU_API_URL") || DEFAULT_API_URL;
-}
-
-export function setApiBaseUrl(url) {
-  if (!url) {
-    localStorage.removeItem("MENU_API_URL");
-  } else {
-    localStorage.setItem("MENU_API_URL", url.trim().replace(/\/$/, ""));
-  }
+  return API_BASE_URL;
 }
 
 /**
  * Função utilitária interna para requisições seguras com tratamento de erro
  */
 async function request(endpoint, options = {}) {
-  const baseUrl = getApiBaseUrl();
-  const url = `${baseUrl}${endpoint}`;
+  const url = `${API_BASE_URL}${endpoint}`;
 
   const headers = {
     "Content-Type": "application/json",
@@ -43,7 +33,7 @@ async function request(endpoint, options = {}) {
     return data;
   } catch (error) {
     if (error.name === "TypeError" && error.message.includes("Failed to fetch")) {
-      throw new Error(`Não foi possível conectar ao servidor backend em "${baseUrl}". Certifique-se de que a API está rodando.`);
+      throw new Error(`Não foi possível conectar ao servidor backend em "${API_BASE_URL}". Certifique-se de que a API está rodando.`);
     }
     throw error;
   }
